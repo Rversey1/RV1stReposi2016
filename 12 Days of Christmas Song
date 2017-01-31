@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string gift[] = {"a Partrodge in a Pear Tree","Two Turtle Doves","Three French Hens","Four Calling Birds","Five Golden Rings","Six Geese a Laying","Seven Swans a Swimming","Eight Maids a Milking","Nine Ladies Dancing","Ten Lords a Leaping","Eleven Piper Piping","12 Drummers Drumming"};
+
+string day[] = {"first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth","eleventh","twelfth"};
+
+void Song(int index)
+{
+  if(index >= 0 && index <= 11)
+  {
+    cout << "On the" << " " << day[index] << " " << "day of Christmas my true love sent to me:" << "\n";
+    int i = index;
+    while(i >= 0)
+    {
+      if(index > 0 && i == 0)
+      {
+        cout << "and ";
+      }
+      cout << gift[i] << "\n";
+      i -= 1;
+    }
+  }
+}
+
+int main()
+{
+  int i = 0;
+  while(i < 12)
+  {
+    Song(i);
+    i += 1;
+    cout << "\n";
+  }
+}
