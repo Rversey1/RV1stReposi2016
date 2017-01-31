@@ -1,0 +1,121 @@
+#include <cstdlib>
+#include <string>
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+
+ string Pname[8] = {"Mary", "Lisa", "Samantha", "Vanessa", "Peter", "John", "Joseph", "Mike"};
+ string Pgender[8] = {"female","female","female","female","male","male","male","male"};
+ string PhairColor[8] = {"blonde", "black","black","blonde","black","blonde","blonde","black"};
+ string Peyecolor[8] = {"brown","blue","brown","blue","brown","blue","brown","blue"};
+ 
+
+ string genderStatements [2] = {"I am a man", "I am a woman"};
+ string hairStatements [2] = {"I have black hair", "I have blonde hair"};
+ string eyeStatements [2] = {"I have blue eyes" , "I have brown eyes"};
+
+ string person;
+ string guess;
+ string hints[2];
+ 
+void Setup()
+{
+
+    person = Pname[4];
+    hints[0] = "I am a " + Pgender[4]; 
+    hints[1] = "I have " + PhairColor[4] + "Hair";
+    hints[1] = "I have brown eyes " + Peyecolor[4]; 
+    
+    guess = " ";
+    
+}
+
+void Display() 
+{
+
+    cout << "Mary = [gender = female,hair = blonde, eye = brown]"<<endl;
+    cout << "Lisa = [gender = female,hair = black, eye = blue] " <<endl;
+    cout << "Samantha = [gender = female,hair = black, eye = brown] " <<endl;
+    cout << "Vanessa = [gender = female,hair = blonde, eye = blue] " <<endl;
+    cout << "Peter = [gender = male,hair = black, eye = brown] " <<endl;
+    cout << "John = [gender = male,hair = blonde, eye = blue] " <<endl;
+    cout << "Joseph = [gender = male,hair = blonde, eye = brown] " <<endl;
+    cout << "Mike = [gender = male,hair = black, eye = blue] " <<endl;
+    cout << " " <<endl;
+    cout << "Hit Enter To Continue When Ready " <<endl;
+    
+    getchar();
+    
+    system("clear");
+    
+  
+}
+
+
+void Round(int rnd) //Done**//
+{
+
+    if(rnd == 1) 
+    {
+        cout <<"Round 1"<<endl;
+        cout <<"Hint: " << hints [0] <<endl;
+    
+    }
+    if(rnd == 2) 
+    {
+        cout <<"Round 2"<<endl;
+        cout <<"Hint:  " << hints [1] <<endl;
+    }
+    
+    cout << " "<<endl;
+    cout << " "<<endl;
+    
+    cout <<"Who Am I?" <<endl;
+    
+    cin >> guess;
+     
+}
+ 
+bool IsCorrect() //****DONE***//
+{
+    if(person == guess){return true;}
+    else {return false;}
+}
+
+int main(int argc, char** argv) //***Done**Maybe?***//
+{
+    
+    Setup();
+    Display();
+    
+    int chance = 1;
+    
+
+
+    while(IsCorrect() == false || chance < 2)
+    {
+            Round(chance);
+            chance++;
+            
+            if(chance >= 3)
+            {
+                break;
+            }
+    }
+    
+    
+    if (IsCorrect() == true)
+    {
+    cout << "Congratulations! You Win!"<<endl;
+    }
+    else //******Get back to this********//
+    {
+        cout << "Better Luck Next Time!" <<endl;
+    }
+
+    return 0;
+}
+
+
