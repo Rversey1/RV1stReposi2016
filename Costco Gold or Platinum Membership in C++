@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+string fname,lname,addr,email,type,benefits;
+int byear,mtype,cyear = 2016,age,price;
+double discount=0.0909;
+cout << "Enter your first name: ";
+cin >> fname;
+cout << "Enter your last name: ";
+cin >> lname;
+cout << "Enter your address: ";//dontusespacewhenwritingaddress
+cin >> addr;
+cout << "Enter your email: ";
+cin >> email;
+cout << "Enter your birth year: ";
+cin >> byear;
+cout << "Enter 1 for Gold or 2 for Platinum: ";
+cin >> mtype;
+  
+age = cyear - byear;
+  
+if(mtype == 1)
+{
+	price = 55;
+	if (age >=65)
+	{
+   		price = (55-(55*discount));
+	}
+   	type = "Gold card";
+   	benefits = "\nBenefits\nUnlimited store access;\nOnline discount;\n$50 gift card";
+}else if(mtype == 2)
+{
+	price = 110;
+	if (age >=65)
+	{
+   		price = (110-(110*discount));
+	}
+   type = "Platinum card";
+   benefits= "Benefits;\n Unlimited store access;\nOnline discounts;\n$100 gift card;\n3% cash back on all purchases";
+}
+cout << lname << ", " << fname << " " << age <<"\n"<< addr << "; " << email <<"\n"<< type << " :$" << price <<"\n"<< benefits;
+return 0;
+}
